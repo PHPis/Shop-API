@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class ApiLoginController extends AbstractController
+{
+    #[Route('/api_login', name: 'authentication_token')]
+    public function index(): Response
+    {
+        return $this->json([
+            'message' => $this->getUser() ? $this->getUser()->getUserIdentifier() : null,
+            'path' => 'src/Controller/ApiLoginController.php',
+        ]);
+    }
+
+    #[Route("/logout", name:"app_logout")]
+    public function logout()
+    {
+        throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+    }
+}

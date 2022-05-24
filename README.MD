@@ -70,4 +70,27 @@ docker-compose restart nginx
 
 Симфони готов к работе.
 
+##Установка бандлов
 
+```
+composer require symfony/flex
+composer require symfony/maker-bundle --dev
+composer require symfony/security-bundle
+composer require doctrine/doctrine-bundle
+composer require doctrine/doctrine-migrations-bundle
+```
+
+Самый простой способ создать пользовательский класс — использовать команду make:user из MakerBundle:
+```
+php bin/console doctrine:database:create
+php bin/console make:user
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+```
+
+```
+composer require zenstruck/foundry --dev
+composer require --dev orm-fixtures
+```
+При добавлении авторизации по токену, если логин в сущности User именуется не как "username", то надо прописать 
+именование поля в ```login_path: email```.
