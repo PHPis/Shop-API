@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiLoginController extends AbstractController
 {
-    #[Route('/api_login', name: 'authentication_token')]
+    #[Route('/authentication_token', name: 'authentication_token')]
     public function index(): Response
     {
         return $this->json([
